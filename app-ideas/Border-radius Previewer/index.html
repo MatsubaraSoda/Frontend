@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border-radius Previewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Border-radius Previewer</h1>
+    <div class="container">
+        <input id="tl" type="number">
+        <input id="tr" type="number">
+    </div>
+    <div class="container">
+        <input id="bl" type="number">
+        <input id="br" type="number">
+    </div>
+    <button onclick="styleChange();">Enter</button>
+    <div class="container-previewer">
+        <div id="previewer"></div>
+    </div>
+    <button onclick="copyBorderRadius()" style="margin-top:50px;">Copy to Clipboard.</button>
+    <div id="invalid"><span></span></div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
