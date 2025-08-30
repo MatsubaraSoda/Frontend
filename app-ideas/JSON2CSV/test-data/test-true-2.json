@@ -1,0 +1,6 @@
+[
+  {"name":"张三","age":25,"active":true,"city":"北京","score":95.5},
+  {"name":"李四","age":30,"active":false,"city":"上海","score":88},
+  {"name":"王五","age":28,"active":true,"city":"广州","score":null},
+  {"name":"赵六","age":35,"active":false,"city":"深圳","score":92.5}
+]
