@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户中心</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1 class="dashboard-title">用户中心</h1>
+            <button class="logout-btn" id="logoutBtn">退出</button>
+        </header>
+        
+        <main class="dashboard-main">
+            <div class="user-info-card">
+                <div class="user-info">
+                    <h2 class="user-name" id="userName">用户名</h2>
+                    <div class="score-section">
+                        <span class="score-label">当前分数：</span>
+                        <span class="score-value" id="userScore">0</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="api-detector.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
