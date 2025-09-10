@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT 邮箱模拟器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="notification-log" class="container">
+        <h1>IOT 邮箱模拟器</h1>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <h2>控制面板</h2>
+            <div class="button-group">
+                <div class="interval-input">
+                    <label for="monitoringInterval">监控间隔 (毫秒):</label>
+                    <input type="number" id="monitoringInterval" value="500" min="100" max="5000">
+                </div>
+
+                <button id="startMonitoring">开始监控</button>
+                <button id="stopMonitoring">停止监控</button>
+                <button id="resetLog">重置日志</button>
+            </div>
+        </div>
+
+        <!-- 通知面板 -->
+        <div class="notification-panel">
+            <h2>通知面板</h2>
+            <div id="notificationPanel">
+                <div class="notification-entry">
+                    <span class="notification-timestamp">{{ notification.timestamp }}</span>
+                    <span class="notification-info">{{ notification.message }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 日志面板 -->
+        <div class="log-panel">
+            <h2>日志面板</h2>
+            <div id="logPanel">
+                <div class="log-entry" v-for="log in logs" :key="log.id">
+                    <span class="log-timestamp">{{ log.timestamp }}</span>
+                    <span class="log-info">{{ log.message }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.global.prod.js"></script>
+    <script src="IOTMailbox.js"></script>
+    <script src="notification-log.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

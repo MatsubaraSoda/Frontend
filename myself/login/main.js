@@ -5,16 +5,19 @@ const testRegisterJson = {
     "requestType": "register"
   }
 
-// API检测功能已移至 api-detector.js 模块
+// API根路径配置
+const API_BASE_URL = 'https://simple-api-exercises.up.railway.app';
+
+// 获取完整的API URL
+function getApiUrl(path) {
+    return `${API_BASE_URL}${path}`;
+}
 
 // 防止重复执行自动登录检查的标志位
 let autoLoginChecked = false;
 
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化API端点
-    initApiEndpoint();
-    
     // 根据当前页面决定执行什么逻辑
     if (window.location.pathname.includes('dashboard.html')) {
         // 在展示页面，初始化用户信息
@@ -295,7 +298,7 @@ function initDashboard() {
     console.log('展示页面初始化完成');
 }
 
-// API检测相关函数已移至 api-detector.js 模块
+// 所有API请求都使用远程服务器
 
 // 退出登录功能
 async function handleLogout() {
