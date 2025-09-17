@@ -1,0 +1,496 @@
+/* ===== 皮尔逊相关分析 - 黑白极简无圆角样式 ===== */
+
+/* 全局重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* 主容器 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* 标题区域 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #000000;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 16px;
+    color: #666666;
+}
+
+/* 输入区域 */
+.input-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.input-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #000000;
+    font-size: 14px;
+}
+
+.input-group input {
+    padding: 8px 12px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    width: 120px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border: 2px solid #000000;
+}
+
+.input-group input::placeholder {
+    color: #999999;
+}
+
+/* 按钮组 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn:active {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-success:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-secondary:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-test {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-test:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* 显示区域 */
+.display-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* 左侧：数据表格容器 */
+.table-container {
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    max-height: 600px;
+}
+
+.table-container h3 {
+    padding: 15px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+}
+
+/* 表格滚动容器 */
+.table-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 200px;
+}
+
+/* 自定义滚动条样式 */
+.table-scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-scroll-container::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-left: 1px solid #000000;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: none;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #333333;
+}
+
+/* 数据表格 */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #000000;
+    border-bottom: 2px solid #000000;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.data-table td {
+    color: #000000;
+}
+
+.data-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.number-cell {
+    text-align: right;
+    font-family: 'Courier New', monospace;
+}
+
+/* 清空按钮 */
+.btn-clear-all {
+    padding: 4px 8px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-clear-all:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* 删除按钮 */
+.btn-delete {
+    padding: 2px 6px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* 右侧面板 */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 图表容器 */
+.chart-container {
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Canvas 样式 - 正方形显示 */
+#scatterCanvas {
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 确保Canvas保持正方形比例 */
+.chart-container {
+    aspect-ratio: 1;
+    justify-content: center;
+}
+
+#scatterCanvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 统计信息容器 */
+.stats-container {
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.stats-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-item label {
+    font-weight: bold;
+    color: #000000;
+    font-size: 14px;
+}
+
+.stat-item span {
+    font-family: 'Courier New', monospace;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    border: 1px solid #e0e0e0;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .display-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* 小设备布局：数据列表在上，图表在中，统计在下 */
+    .table-container {
+        order: 1;
+    }
+    
+    .right-panel {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .chart-container {
+        order: 1;
+        aspect-ratio: 1;
+    }
+    
+    .stats-container {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .input-left {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .input-group input {
+        width: 100%;
+    }
+    
+    .button-group {
+        justify-content: center;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .header p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 20px;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    .stat-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .stat-item span {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* 隐藏文件输入 */
+input[type="file"] {
+    display: none;
+}
+
+/* 焦点状态 */
+input:focus,
+button:focus {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+
+/* 禁用状态 */
+.btn:disabled {
+    background-color: #f5f5f5;
+    color: #999999;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    background-color: #f5f5f5;
+    color: #999999;
+}

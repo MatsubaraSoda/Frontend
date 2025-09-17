@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄时钟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 标题 -->
+    <header>
+        <h1>番茄时钟</h1>
+    </header>
+
+    <!-- 主要显示界面 -->
+    <main class="display-container">
+        <!-- 时钟显示区域 -->
+        <div class="timer-section">
+            <div class="timer-display">
+                <span id="minutes">25</span>
+                <span class="time-separator">:</span>
+                <span id="seconds">00</span>
+            </div>
+            <div class="timer-status">
+                <span id="currentSession">工作时段</span>
+            </div>
+        </div>
+
+        <!-- 控制按钮区域 -->
+        <div class="control-buttons">
+            <button id="startBtn">开始</button>
+            <button id="pauseBtn">暂停</button>
+            <button id="resetBtn">重置</button>
+        </div>
+
+        <!-- 设置区域 -->
+        <div class="settings-section">
+            <h3>时间设置</h3>
+            <div class="time-settings">
+                <!-- 工作时长设置 -->
+                <div class="setting-item">
+                    <label for="workDuration">工作时长 (分钟)</label>
+                    <div class="setting-control">
+                        <button class="setting-btn" id="workDurationDown">-</button>
+                        <input type="text" id="workDuration" value="25">
+                        <button class="setting-btn" id="workDurationUp">+</button>
+                    </div>
+                </div>
+                
+                <!-- 休息时长设置 -->
+                <div class="setting-item">
+                    <label for="breakDuration">休息时长 (分钟)</label>
+                    <div class="setting-control">
+                        <button class="setting-btn" id="breakDurationDown">-</button>
+                        <input type="text" id="breakDuration" value="5">
+                        <button class="setting-btn" id="breakDurationUp">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 音量控制区域 -->
+        <div class="volume-control">
+            <!-- 喇叭图标 -->
+            <button id="volumeToggle" class="volume-icon" data-muted="false">
+                <span class="volume-on">🔊</span>
+                <span class="volume-off hidden">🔇</span>
+            </button>
+            
+            <!-- 音量滑块 -->
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
+        </div>
+    </main>
+    
+    <!-- JavaScript 模块 -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
