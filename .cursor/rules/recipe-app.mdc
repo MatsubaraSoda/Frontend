@@ -1,0 +1,13 @@
+---
+description: Recipe-App 项目开发规则和笔记
+globs: ["app-ideas/Recipe-App/**/*"]
+alwaysApply: true
+---
+
+- 网站的所有内容使用英文。尽管开发过程中的文档使用中文。这是因为菜谱 API 提供是 The MealDB API，它们提供的是英文内容。
+
+- 不要使用 aria- 标签
+
+- class 用烤肉式(hello-world)，id 用驼峰式(helloWorld)
+
+- css 样式不要使用靛蓝色
