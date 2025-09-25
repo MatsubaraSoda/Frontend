@@ -1,0 +1,749 @@
+/* CSS变量定义 - 统一色调 */
+:root {
+    /* 主色调 - 罗马红系 */
+    --primary-color: #dc2626;      /* 主红色 */
+    --primary-dark: #b91c1c;      /* 深红色 */
+    --primary-light: #ef4444;     /* 浅红色 */
+    --primary-lighter: #fca5a5;   /* 更浅红色 */
+    
+    /* 辅助色 - 红色系渐变 */
+    --secondary-color: #991b1b;   /* 辅助红色 */
+    --accent-color: #7f1d1d;      /* 强调红色 */
+    
+    /* 中性色 - 围绕罗马红的暖色调 */
+    --text-primary: #7f1d1d;      /* 主文本色 - 深罗马红 */
+    --text-secondary: #991b1b;    /* 次要文本色 - 中罗马红 */
+    --text-muted: #b91c1c;        /* 静音文本色 - 浅罗马红 */
+    
+    /* 背景色 - 围绕罗马红的暖色调 */
+    --bg-primary: #fef7f7;        /* 主背景色 - 极浅罗马红 */
+    --bg-secondary: #fef2f2;      /* 次背景色 - 浅罗马红 */
+    --bg-card: #ffffff;           /* 卡片背景色 - 纯白 */
+    
+    /* 边框色 - 围绕罗马红的暖色调 */
+    --border-color: #fecaca;      /* 边框色 - 浅罗马红 */
+    --border-hover: #fca5a5;      /* 悬停边框色 - 更浅罗马红 */
+    
+    /* 状态色 - 罗马红系 */
+    --success-color: #dc2626;     /* 成功色（罗马红） */
+    --success-bg: #fef2f2;        /* 成功背景色 */
+    --error-color: #991b1b;       /* 错误色（深罗马红） */
+    --error-bg: #fef2f2;          /* 错误背景色 */
+    
+    /* 阴影 */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 强制重置所有输入框的默认焦点样式 */
+input, textarea, select {
+    outline: none !important;
+}
+
+input:focus, input:focus-visible, input:focus-within,
+textarea:focus, textarea:focus-visible, textarea:focus-within,
+select:focus, select:focus-visible, select:focus-within {
+    outline: none !important;
+}
+
+body {
+    font-family: 'Segoe UI', 'Segoe UI Symbol', 'Cambria', 'Times New Roman', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+}
+
+/* 主容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 页面加载动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 页面头部 */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: slideInDown 1s ease-out;
+}
+
+/* 头部装饰元素 */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    to {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle-hint {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-style: italic;
+    margin-top: 8px;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    max-width: 600px;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 转换器区域 */
+.converter-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+    animation: slideInUp 1.2s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.converter-box {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.converter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.converter-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.1), 0 10px 10px -5px rgba(220, 38, 38, 0.04);
+    border-color: var(--primary-light);
+}
+
+.converter-box:hover::before {
+    transform: translateX(0);
+}
+
+.converter-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* 输入输出组 */
+.input-group, .output-group {
+    margin-bottom: 20px;
+}
+
+.output-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.output-container .result-input {
+    flex: 1;
+}
+
+/* 罗马数字显示优化 */
+.roman-numeral {
+    font-family: 'Segoe UI', 'Segoe UI Symbol', 'Cambria', 'Times New Roman', monospace;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-feature-settings: 'liga' 1;
+    -moz-font-feature-settings: 'liga' 1;
+    -ms-font-feature-settings: 'liga' 1;
+}
+
+/* 输入提示 */
+.input-tip {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background-color: var(--primary-lighter);
+    border: 1px solid var(--primary-light);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(220, 38, 38, 0.1);
+}
+
+.empty-tip {
+    margin-top: 8px;
+    padding: 8px 12px;
+    height: 36px; /* 与 input-tip 保持一致的高度 */
+    box-sizing: border-box;
+}
+
+.tip-icon {
+    font-size: 1rem;
+}
+
+.tip-text code {
+    background-color: var(--bg-primary);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.input-label, .output-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.number-input, .text-input, .result-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', 'Segoe UI Symbol', 'Cambria', 'Times New Roman', monospace;
+    transition: all 0.3s ease;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+    background: var(--bg-card);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.number-input:focus, .text-input:focus {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-1px);
+}
+
+/* 强制覆盖所有可能的焦点样式 */
+input:focus, input:focus-visible, input:focus-within {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+.result-input {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+/* 按钮样式 */
+.convert-button, .copy-button {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.convert-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.convert-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.convert-button:hover::before {
+    left: 100%;
+}
+
+.convert-button:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+}
+
+.convert-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.copy-button {
+    background: var(--success-color);
+    color: white;
+    margin-left: 10px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(220, 38, 38, 0.25);
+}
+
+.copy-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.35);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(220, 38, 38, 0.25);
+}
+
+/* 符号参考表 */
+.symbol-reference {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 40px;
+    animation: slideInUp 1.4s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.symbol-reference::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.symbol-tables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.symbol-table {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.table-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.symbol-item {
+    background: var(--bg-card);
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Segoe UI', 'Segoe UI Symbol', 'Cambria', 'Times New Roman', monospace;
+    font-weight: 600;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.symbol-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+    background: linear-gradient(135deg, var(--bg-card), rgba(252, 165, 165, 0.1));
+}
+
+/* 示例区域 */
+.examples-section {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 40px;
+    animation: slideInUp 1.6s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.examples-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--primary-color));
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.example-card {
+    background: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.example-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
+    border-left-width: 6px;
+}
+
+.example-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.example-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.example-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.arabic-example, .roman-example {
+    font-family: 'Segoe UI', 'Segoe UI Symbol', 'Cambria', 'Times New Roman', monospace;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga' 1;
+}
+
+.arrow {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* 消息提示 */
+.error-message, .success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 18px 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.error-message {
+    background: var(--error-color);
+    color: white;
+}
+
+.success-message {
+    background: var(--success-color);
+    color: white;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 动画 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .converter-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .converter-box {
+        padding: 20px;
+    }
+    
+    .symbol-tables {
+        grid-template-columns: 1fr;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .error-message, .success-message {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .converter-title, .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .symbol-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 额外的微动画和交互效果 */
+.symbol-item, .example-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.symbol-item:active, .example-item:active {
+    transform: scale(0.98);
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* 选择文本样式 */
+::selection {
+    background: var(--primary-lighter);
+    color: var(--primary-dark);
+}
+
+::-moz-selection {
+    background: var(--primary-lighter);
+    color: var(--primary-dark);
+}
+
+/* 焦点可见性增强 */
+.convert-button:focus, .copy-button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #dc2626;
+        --primary-dark: #b91c1c;
+        --border-color: #dc2626;
+        --text-primary: #000000;
+    }
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
