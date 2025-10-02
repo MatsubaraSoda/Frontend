@@ -1,5 +1,15 @@
-// 图片文件映射对象（键值对形式）
-let imageFiles = {};
+// 图片文件映射对象（键值对形式，硬编码）
+let imageFiles = {
+    1: 'pexels-binyaminmellish-108941.jpg',
+    2: 'pexels-eberhardgross-4406342.jpg',
+    3: 'pexels-eberhardgross-629160.jpg',
+    4: 'pexels-erik-karits-2093459-3782463.jpg',
+    5: 'pexels-gashifrheza-1486121.jpg',
+    6: 'pexels-maddie-franz-727736-1571117.jpg',
+    7: 'pexels-mtk402-2058853.jpg',
+    8: 'pexels-orlovamaria-4946874.jpg',
+    9: 'pexels-pok-rie-33563-5799946.jpg'
+};
 
 // 轮播控制变量
 let currentIndex = 1;           // 当前显示的图片索引（从1开始）
@@ -13,51 +23,6 @@ const transitionDuration = 500; // 切换动画时长（毫秒）
 
 // DOM 元素
 const carouselList = document.querySelector('.carousel-list');
-
-// 从服务器获取图片文件列表
-async function loadImageFiles() {
-    try {
-        // 尝试获取目录列表（Live Server 支持）
-        const response = await fetch('./assets/img/');
-        
-        if (response.ok) {
-            const html = await response.text();
-            
-            // 解析 HTML 中的文件名
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const links = doc.querySelectorAll('a[href]');
-            
-            const fileList = [];
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                // 过滤出图片文件（排除上级目录链接）
-                if (href && href !== '../' && /\.(jpg|jpeg|png|gif|webp)$/i.test(href)) {
-                    // 只保留文件名，去掉可能包含的路径前缀
-                    const fileName = href.split('/').pop();
-                    fileList.push(fileName);
-                }
-            });
-            
-            // 按文件名排序
-            fileList.sort();
-            
-            // 将文件列表转换为键值对形式（键从1开始自增）
-            fileList.forEach((filename, index) => {
-                imageFiles[index + 1] = filename;
-            });
-            
-            console.log('动态获取到图片文件列表:', imageFiles);
-            return true;
-        } else {
-            console.error('无法访问图片目录');
-            return false;
-        }
-    } catch (error) {
-        console.error('动态加载图片文件列表失败:', error);
-        return false;
-    }
-}
 
 // 创建轮播项 DOM 的函数
 function createCarouselItems() {
@@ -90,6 +55,7 @@ function createCarouselItems() {
     });
     
     console.log(`已创建 ${totalItems} 个轮播项`);
+    console.log('使用硬编码图片列表:', imageFiles);
     
     // 初始化轮播
     initCarousel();
@@ -199,12 +165,7 @@ function initButtonEvents() {
 }
 
 // 页面加载完成后执行
-document.addEventListener('DOMContentLoaded', async () => {
-    // 先加载图片文件列表
-    const loaded = await loadImageFiles();
-    
-    if (loaded) {
-        // 如果加载成功，创建轮播项
-        createCarouselItems();
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // 直接创建轮播项（使用硬编码的图片列表）
+    createCarouselItems();
 });
