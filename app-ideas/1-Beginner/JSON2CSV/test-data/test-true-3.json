@@ -1,0 +1,5 @@
+[
+  {"id":1,"title":"JavaScript基础","author":"张三","published":true,"price":59.9,"category":"编程"},
+  {"id":2,"title":"Python入门","author":"李四","published":true,"price":49.9,"category":"编程"},
+  {"id":3,"title":"数据结构","author":"王五","published":false,"price":null,"category":"计算机科学"}
+]

@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    width: 100vw;
+}
+
+.panel-left .header {
+    height: 10vh;
+    line-height: 10vh;
+    letter-spacing: 4px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #c9c9c9;
+    border-radius: 10px 0 0 0;
+}
+
+.employee-list {
+    /* 消除 ul 默认外边距和内边距 */
+    margin: 0;
+    padding: 0;
+    /* 消除 ul 默认的项目符号 */
+    list-style-type: none;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: #f0f0f0;
+}
+
+.employee-list li {
+    /* 消除 li 默认的 list-item 样式 */
+    display: block;
+
+    height: 80px;
+}
+
+.employee-list li button {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.employee-list li button:hover {
+    background-color: #ffffff;
+}
+
+.employee-list li button.selected {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.panel-left {
+    width: 200px;
+    border: 2px solid #000;
+    background-color: #f0f0f0;
+    border-radius: 10px 0 0 10px;
+}
+
+.panel-right {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 0 10px 10px 0;
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+
+    display: none;
+}
+
+.card-img {
+    width: 100%;
+    height: 300px;
+    background-color: #b9ddfa;
+    border-radius: 10px;
+}
+
+.card-img img {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    padding-top: 25px;
+}
+
+.card-body {
+    display: flex;
+    margin-top: 20px;
+    gap: 50px;
+}
+
+.card-body-left {
+    width: 30%;
+    text-align: right;
+    line-height: 2.5;
+}
+
+.card-body-right {
+    width: 70%;
+    text-align: left;
+    line-height: 2.5;
+}

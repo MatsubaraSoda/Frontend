@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueOrFalse - JS Comparison Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueOrFalse - JS Comparison Tester</h1>
+        </header>
+
+        <main>
+            <div class="input-group">
+                <label for="value1">Value 1:</label>
+                <input type="text" id="value1" placeholder="Enter value">
+                <label for="type1">Type:</label>
+                <select id="type1">
+                    <option value="string">String</option>
+                    <option value="number">Number</option>
+                    <option value="boolean">Boolean</option>
+                </select>
+            </div>
+
+            <div class="operator-group">
+                <label for="operator">Operator:</label>
+                <select id="operator">
+                    <option value="===">===</option>
+                    <option value="==">==</option>
+                    <option value="!==">!==</option>
+                    <option value="!=">!=</option>
+                    <option value="<">&lt;</option>
+                    <option value=">">&gt;</option>
+                    <option value="<=">&lt;=</option>
+                    <option value=">=">&gt;=</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="value2">Value 2:</label>
+                <input type="text" id="value2" placeholder="Enter value">
+                <label for="type2">Type:</label>
+                <select id="type2">
+                    <option value="string">String</option>
+                    <option value="number">Number</option>
+                    <option value="boolean">Boolean</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button id="compareBtn">Compare</button>
+            </div>
+
+            <div class="result-area">
+                <div class="result-label">Result:</div>
+                <div id="result" class="result-value"></div>
+            </div>
+
+            <div class="message-area">
+                <div id="message" class="message-text"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+

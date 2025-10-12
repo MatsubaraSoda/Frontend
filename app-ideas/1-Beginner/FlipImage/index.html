@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipImage - 练习</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 输入区域 -->
+        <div class="input-section">
+            <label for="urlInput">请输入图片URL：</label>
+            <input type="url" id="urlInput" class="url-input" placeholder="https://example.com" required>
+            <button id="displayBtn" class="display-btn">加载图片</button>
+            <p class="error-message" id="errorMessage"></p>
+        </div>
+
+        <!-- 2x2 网格容器 -->
+        <div class="grid-container">
+            <div class="image-cell">
+                <div class="flip-box">
+                    <div class="flip-inner">
+                        <img src="./image/132745431_p0.jpg" alt="image" class="image">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-flip" data-direction="up">↑</button>
+                    <button class="btn-flip" data-direction="left">←</button>
+                    <button class="btn-flip" data-direction="right">→</button>
+                    <button class="btn-flip" data-direction="down">↓</button>
+                    <button class="btn-flip" data-direction="reset">↻</button>
+                </div>
+            </div>
+            <div class="image-cell">
+                <div class="flip-box">
+                    <div class="flip-inner">
+                        <img src="./image/132745431_p0.jpg" alt="image" class="image">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-flip" data-direction="up">↑</button>
+                    <button class="btn-flip" data-direction="left">←</button>
+                    <button class="btn-flip" data-direction="right">→</button>
+                    <button class="btn-flip" data-direction="down">↓</button>
+                    <button class="btn-flip" data-direction="reset">↻</button>
+                </div>
+            </div>
+            <div class="image-cell">
+                <div class="flip-box">
+                    <div class="flip-inner">
+                        <img src="./image/132745431_p0.jpg" alt="image" class="image">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-flip" data-direction="up">↑</button>
+                    <button class="btn-flip" data-direction="left">←</button>
+                    <button class="btn-flip" data-direction="right">→</button>
+                    <button class="btn-flip" data-direction="down">↓</button>
+                    <button class="btn-flip" data-direction="reset">↻</button>
+                </div>
+            </div>
+            <div class="image-cell">
+                <div class="flip-box">
+                    <div class="flip-inner">
+                        <img src="./image/132745431_p0.jpg" alt="image" class="image">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-flip" data-direction="up">↑</button>
+                    <button class="btn-flip" data-direction="left">←</button>
+                    <button class="btn-flip" data-direction="right">→</button>
+                    <button class="btn-flip" data-direction="down">↓</button>
+                    <button class="btn-flip" data-direction="reset">↻</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>

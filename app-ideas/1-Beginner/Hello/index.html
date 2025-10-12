@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello - 个性化问候应用</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-panel">
+        <h2>个性化问候登录</h2>
+
+        <form id="loginForm" onsubmit="return false;">
+            <div class="form-group">
+                <label for="userName">用户名：</label>
+                <input type="text" id="userName" class="username-input" placeholder="请输入用户名">
+            </div>
+
+            <div class="form-group">
+                <label for="userPassword">密码：</label>
+                <input type="password" id="userPassword" class="password-input" placeholder="请输入密码">
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="login-btn" @click="handleLogin">登录</button>
+                <button type="button" class="logout-btn" @click="handleLogout">退出</button>
+            </div>
+        </form>
+
+        <div id="messageBox" class="message-box" v-show="message">{{ message }}</div>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

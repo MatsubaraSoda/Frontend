@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时器</title>
+    <link rel="stylesheet" href="style-1.css" id="currentStyle">
+</head>
+
+<body>
+    <!-- CSS切换按钮 -->
+    <div class="theme-switcher">
+        <button type="button" id="themeToggle" class="theme-toggle-btn">
+            <span class="theme-icon">🎨</span>
+            <span class="theme-text">切换主题</span>
+        </button>
+    </div>
+    
+    <div class="container">
+        <!-- 标签页区域 -->
+        <div class="tabs" id="countdownTabs">
+            <input type="radio" id="tab1" name="tabs" value="1" checked>
+            <label for="tab1" class="tab">倒计时1</label>
+
+            <input type="radio" id="tab2" name="tabs" value="2">
+            <label for="tab2" class="tab">倒计时2</label>
+
+            <input type="radio" id="tab3" name="tabs" value="3">
+            <label for="tab3" class="tab">倒计时3</label>
+
+            <input type="radio" id="tab4" name="tabs" value="4">
+            <label for="tab4" class="tab">倒计时4</label>
+
+            <input type="radio" id="tab5" name="tabs" value="5">
+            <label for="tab5" class="tab">倒计时5</label>
+        </div>
+
+        <!-- 输入表单区域 -->
+        <div class="input-section">
+            <h2>事件设定</h2>
+            <form id="countdownForm">
+                <div class="form-group">
+                    <label for="eventName">事件名称：</label>
+                    <input type="text" id="eventName" name="eventName" maxlength="16" placeholder="请输入事件名称" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">日期：</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventTime">时间：</label>
+                    <input type="time" id="eventTime" name="eventTime">
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="startBtn">开始倒计时</button>
+                    <button type="button" id="stopBtn">关闭倒计时</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 倒计时显示区域 -->
+        <div class="countdown-section">
+            <h2>事件倒计时</h2>
+            <div class="countdown-display">
+                <div class="countdown-item">
+                    <span class="number" id="days">0</span>
+                    <span class="label">天</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">0</span>
+                    <span class="label">时</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">0</span>
+                    <span class="label">分</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">0</span>
+                    <span class="label">秒</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

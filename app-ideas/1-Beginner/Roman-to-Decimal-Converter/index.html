@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗马数字转换器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <header class="page-header">
+            <h1 class="main-title">罗马数字转换器</h1>
+                <p class="subtitle">在罗马数字和阿拉伯数字之间转换（1 - 999,999,999）</p>
+                <p class="subtitle-hint">💡 罗马人表示：这么大的数字我们真的用不到...而且我们也没有"0"这个概念，毕竟罗马帝国不需要"零花钱" 😄</p>
+        </header>
+
+        <!-- 主要转换区域 -->
+        <main class="converter-section">
+            <!-- 阿拉伯数字转罗马数字 -->
+            <div class="converter-box" id="arabicToRomanBox">
+                <h2 class="converter-title">阿拉伯数字转罗马数字</h2>
+                <div class="input-group">
+                    <label for="arabicInput" class="input-label">阿拉伯数字：</label>
+                    <input type="number" id="arabicInput" class="number-input" placeholder="请输入数字（1-999,999,999）" min="1" max="999999999">
+                    <button id="convertToRoman" class="convert-button">转换为罗马数字</button>
+                </div>
+                <div class="output-group">
+                    <label for="romanOutput" class="output-label">罗马数字：</label>
+                    <input type="text" id="romanOutput" class="result-input roman-numeral" readonly placeholder="结果将在此显示">
+                    <button id="copyRomanResult" class="copy-button">复制</button>
+                    <div class="empty-tip"></div>
+                </div>
+            </div>
+
+            <!-- 罗马数字转阿拉伯数字 -->
+            <div class="converter-box" id="romanToArabicBox">
+                <h2 class="converter-title">罗马数字转阿拉伯数字</h2>
+                <div class="input-group">
+                    <label for="romanInput" class="input-label">罗马数字：</label>
+                    <input type="text" id="romanInput" class="text-input roman-numeral" placeholder="请输入罗马数字（例如：IV, MV̅）">
+                    <button id="convertToArabic" class="convert-button">转换为阿拉伯数字</button>
+                </div>
+                <div class="output-group">
+                    <label for="arabicOutput" class="output-label">阿拉伯数字：</label>
+                    <input type="text" id="arabicOutput" class="result-input" readonly placeholder="结果将在此显示">
+                    <button id="copyArabicResult" class="copy-button">复制</button>
+                    <div class="input-tip">
+                        <span class="tip-icon">💡</span>
+                        <span class="tip-text">提示：输入 <code>-</code> 符号可自动为当前光标位置的罗马数字字符添加横线</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 符号参考表 -->
+        <section class="symbol-reference">
+            <h2 class="section-title">符号对照表</h2>
+            <div class="symbol-tables">
+                <div class="symbol-table">
+                    <h3 class="table-title">基础符号</h3>
+                    <div class="symbol-grid">
+                        <span class="symbol-item roman-numeral">I = 1</span>
+                        <span class="symbol-item roman-numeral">V = 5</span>
+                        <span class="symbol-item roman-numeral">X = 10</span>
+                        <span class="symbol-item roman-numeral">L = 50</span>
+                        <span class="symbol-item roman-numeral">C = 100</span>
+                        <span class="symbol-item roman-numeral">D = 500</span>
+                        <span class="symbol-item roman-numeral">M = 1,000</span>
+                    </div>
+                </div>
+                
+                <div class="symbol-table">
+                    <h3 class="table-title">单横线符号（×1,000）</h3>
+                    <div class="symbol-grid">
+                        <span class="symbol-item roman-numeral">V̅ = 5,000</span>
+                        <span class="symbol-item roman-numeral">X̅ = 10,000</span>
+                        <span class="symbol-item roman-numeral">L̅ = 50,000</span>
+                        <span class="symbol-item roman-numeral">C̅ = 100,000</span>
+                        <span class="symbol-item roman-numeral">D̅ = 500,000</span>
+                        <span class="symbol-item roman-numeral">M̅ = 1,000,000</span>
+                    </div>
+                </div>
+                
+                <div class="symbol-table">
+                    <h3 class="table-title">双横线符号（×1,000,000）</h3>
+                    <div class="symbol-grid">
+                        <span class="symbol-item roman-numeral">V̅̅ = 5,000,000</span>
+                        <span class="symbol-item roman-numeral">X̅̅ = 10,000,000</span>
+                        <span class="symbol-item roman-numeral">L̅̅ = 50,000,000</span>
+                        <span class="symbol-item roman-numeral">C̅̅ = 100,000,000</span>
+                        <span class="symbol-item roman-numeral">D̅̅ = 500,000,000</span>
+                        <span class="symbol-item roman-numeral">M̅̅ = 1,000,000,000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 示例区域 -->
+        <section class="examples-section">
+            <h2 class="section-title">转换示例</h2>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3 class="example-title">常见数字</h3>
+                    <div class="example-list">
+                        <div class="example-item">
+                            <span class="arabic-example">4</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">IV</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">9</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">IX</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">49</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">XLIX</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">99</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">XCIX</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <h3 class="example-title">大数字</h3>
+                    <div class="example-list">
+                        <div class="example-item">
+                            <span class="arabic-example">4,000</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">MV̅</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">9,000</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">MX̅</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">50,000</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">L̅</span>
+                        </div>
+                        <div class="example-item">
+                            <span class="arabic-example">999,999</span>
+                            <span class="arrow">→</span>
+                            <span class="roman-example roman-numeral">C̅M̅X̅C̅MXCIX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 错误提示区域 -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <span class="error-icon">⚠️</span>
+            <span class="error-text" id="errorText"></span>
+            <button class="error-close" id="closeError">×</button>
+        </div>
+
+        <!-- 成功提示区域 -->
+        <div class="success-message" id="successMessage" style="display: none;">
+            <span class="success-icon">✓</span>
+            <span class="success-text" id="successText"></span>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

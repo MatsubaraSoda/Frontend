@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风寒指数计算器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <h1>🌡️ 风寒指数计算器 💨</h1>
+            <p class="subtitle">计算风速影响下的体感温度</p>
+        </header>
+
+        <!-- 主要内容区域 - 经典计算器风格 -->
+        <main class="main-content">
+            <!-- 输入区域 -->
+            <section class="input-section">
+                <!-- 测量系统选择 -->
+                <div class="form-group">
+                    <label class="form-label">测量系统：</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="unit-system" 
+                                id="metric-system" 
+                                value="metric" 
+                                checked
+                                aria-label="选择公制单位"
+                            >
+                            <span class="radio-text">公制 (°C, km/h)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="unit-system" 
+                                id="imperial-system" 
+                                value="imperial"
+                                aria-label="选择英制单位"
+                            >
+                            <span class="radio-text">英制 (°F, mph)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 温度输入 -->
+                <div class="form-group">
+                    <label for="temperature-input" class="form-label">温度：</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="number" 
+                            id="temperature-input" 
+                            class="number-input" 
+                            placeholder="请输入温度"
+                            step="0.1"
+                            aria-label="温度输入框"
+                        >
+                        <span class="input-unit" id="temperature-unit">°C</span>
+                    </div>
+                </div>
+
+                <!-- 风速输入 -->
+                <div class="form-group">
+                    <label for="wind-speed-input" class="form-label">风速：</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="number" 
+                            id="wind-speed-input" 
+                            class="number-input" 
+                            placeholder="请输入风速"
+                            step="0.1"
+                            min="0"
+                            aria-label="风速输入框"
+                        >
+                        <span class="input-unit" id="wind-speed-unit">km/h</span>
+                    </div>
+                </div>
+
+                <!-- 计算按钮 -->
+                <div class="button-group">
+                    <button 
+                        id="calculate-btn" 
+                        class="btn btn-primary" 
+                        type="button"
+                        aria-label="计算风寒指数"
+                    >
+                        计 算
+                    </button>
+                </div>
+            </section>
+
+            <!-- 分隔线 -->
+            <div class="divider"></div>
+
+            <!-- 结果显示区域 -->
+            <section class="result-section">
+                <h2 class="section-title">结果显示</h2>
+                
+                <!-- 体感温度显示 -->
+                <div class="result-display">
+                    <div class="result-label">体感温度：</div>
+                    <div class="result-value">
+                        <span id="wind-chill-value">--</span>
+                        <span class="result-unit" id="wind-chill-unit">°C</span>
+                    </div>
+                </div>
+
+                <!-- 提示信息 -->
+                <div class="info-text">
+                    💡 风寒系数适用于低温环境（< 10°C）且有风的情况
+                </div>
+
+                <!-- 错误/警告信息区域 -->
+                <div class="message-box" id="message-box" style="display: none;" role="alert" aria-live="assertive">
+                    <div class="message-icon" id="message-icon"></div>
+                    <div class="message-text" id="message-text"></div>
+                    <button class="message-close" id="message-close" aria-label="关闭消息"></button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+

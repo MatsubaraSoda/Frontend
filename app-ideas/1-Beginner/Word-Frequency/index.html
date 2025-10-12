@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>词频统计应用</title>
+    <link rel="stylesheet" href="style-dev.css">
+</head>
+<body>
+    <!-- 应用容器 -->
+    <div class="app-container">
+        <!-- 标题区域 -->
+        <header class="app-header">
+            <h1>词频统计应用</h1>
+            <p class="subtitle">分析文本中单词出现的频率</p>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 输入区域 -->
+            <section class="input-section">
+                <h2>输入文本</h2>
+                <div class="input-wrapper">
+                    <textarea 
+                        id="textInput" 
+                        class="text-input" 
+                        placeholder="在此输入或粘贴要分析的文本..."
+                        maxlength="2048"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> / 2048 字符
+                    </div>
+                </div>
+            </section>
+
+            <!-- 操作按钮区域 -->
+            <section class="action-section">
+                <button id="analyzeBtn" class="btn btn-primary">统计词频</button>
+                <button id="clearBtn" class="btn btn-secondary">清空内容</button>
+            </section>
+
+            <!-- 错误/提示信息区域 -->
+            <section class="message-section">
+                <div id="messageBox" class="message-box hidden">
+                    <span class="message-icon">⚠</span>
+                    <span id="messageText" class="message-text"></span>
+                </div>
+            </section>
+
+            <!-- 结果区域 -->
+            <section class="result-section">
+                <div class="result-header">
+                    <h2>词频统计结果</h2>
+                    <!-- 统计摘要 -->
+                    <div id="summary" class="summary hidden">
+                        <span class="summary-item">
+                            总单词数: <strong id="totalWords">0</strong>
+                        </span>
+                        <span class="summary-item">
+                            唯一单词数: <strong id="uniqueWords">0</strong>
+                        </span>
+                        <span class="summary-item">
+                            平均词频: <strong id="avgFrequency">0</strong>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 词频表格 -->
+                <div class="table-wrapper">
+                    <table id="frequencyTable" class="frequency-table">
+                        <thead>
+                            <tr>
+                                <th class="col-rank">排名</th>
+                                <th class="col-word">单词</th>
+                                <th class="col-count">出现次数</th>
+                                <th class="col-visual">频率可视化</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- 数据行将通过 JavaScript 动态插入 -->
+                            <tr class="empty-state">
+                                <td colspan="4">
+                                    <div class="empty-message">
+                                        <p>暂无数据</p>
+                                        <p class="empty-hint">请在上方输入文本并点击"统计词频"按钮</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="app-footer">
+            <p>词频统计应用 - App Ideas 项目</p>
+        </footer>
+    </div>
+
+    <!-- 开发阶段测试数据 -->
+    <script type="module" src="data-dev.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+

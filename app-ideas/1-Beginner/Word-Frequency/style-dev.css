@@ -1,0 +1,311 @@
+/* 开发阶段临时样式表 */
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* 主容器 */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    padding: 20px;
+}
+
+/* 标题区域 */
+.app-header {
+    border: 1px dashed #999;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.app-header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 主内容区 */
+.main-content {
+    border: 1px dashed #999;
+    padding: 20px;
+}
+
+/* 输入区域 */
+.input-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+
+.input-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.text-input {
+    width: 100%;
+    min-height: 500px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: none;
+    overflow-y: auto;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.char-counter {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+#charCount {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 操作按钮区域 */
+.action-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
+}
+
+.btn-secondary:hover {
+    background-color: #da190b;
+}
+
+/* 消息提示区域 */
+.message-section {
+    margin-bottom: 20px;
+}
+
+.message-box {
+    border: 2px solid #ff9800;
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message-box.hidden {
+    display: none;
+}
+
+.message-icon {
+    font-size: 20px;
+}
+
+.message-text {
+    flex: 1;
+    font-size: 14px;
+}
+
+/* 结果区域 */
+.result-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.result-header {
+    margin-bottom: 15px;
+}
+
+.result-header h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 统计摘要 */
+.summary {
+    border: 1px solid #ddd;
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.summary.hidden {
+    display: none;
+}
+
+.summary-item {
+    font-size: 14px;
+}
+
+.summary-item strong {
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+/* 表格容器 */
+.table-wrapper {
+    overflow-x: auto;
+    border: 2px solid #ccc;
+}
+
+.frequency-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.frequency-table thead {
+    background-color: #333;
+    color: white;
+}
+
+.frequency-table th {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #666;
+}
+
+.frequency-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.frequency-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.frequency-table tbody tr:hover {
+    background-color: #e8f5e9;
+}
+
+/* 表格列宽 */
+.col-rank {
+    width: 10%;
+    text-align: center;
+}
+
+.col-word {
+    width: 25%;
+}
+
+.col-count {
+    width: 15%;
+    text-align: center;
+}
+
+.col-visual {
+    width: 50%;
+}
+
+/* 频率可视化条形图 */
+.frequency-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.frequency-bar {
+    height: 24px;
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    min-width: 5%;
+}
+
+.frequency-count {
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 空状态 */
+.empty-state td {
+    text-align: center;
+    padding: 40px;
+}
+
+.empty-message {
+    color: #999;
+}
+
+.empty-message p:first-child {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.empty-hint {
+    font-size: 14px;
+}
+
+/* 页脚 */
+.app-footer {
+    border: 1px dashed #999;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-size: 12px;
+    color: #666;
+}
+

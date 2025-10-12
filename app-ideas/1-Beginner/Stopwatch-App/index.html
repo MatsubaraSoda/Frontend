@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秒表应用</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>秒表应用</h1>
+        
+        <div class="cat-run"></div>
+        
+        <div class="stopwatch">
+            <div class="display">
+                <span class="time">00:00:00</span>
+            </div>
+            
+            <div class="controls">
+                <button class="btn start">开始</button>
+                <button class="btn stop">暂停</button>
+                <button class="btn reset">重置</button>
+                <button class="btn lap">记圈</button>
+            </div>
+        </div>
+
+        <div class="laps-section">
+            <h2>圈数记录</h2>
+            <div class="laps-grid">
+                <div class="grid-header">
+                    <div class="grid-cell">圈数</div>
+                    <div class="grid-cell">圈数时间</div>
+                    <div class="grid-cell">累计时间</div>
+                </div>
+                <div class="grid-body" id="lapsGridBody">
+                    <!-- 圈数记录将在这里动态添加 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

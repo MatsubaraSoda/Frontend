@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数生成器 - 蒙特卡洛模拟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>随机数生成器</h1>
+            <p class="subtitle">蒙特卡洛模拟</p>
+            <div class="usage-instructions">
+                <h3>使用说明</h3>
+                <p class="concept-intro">
+                    <strong>核心概念：</strong>想象有一个特殊的骰子，上面有从最小值到最大值的每一个整数。每次投掷都是独立事件，每个数字出现的概率都相等。
+                </p>
+                <ol>
+                    <li>在下方输入框中设置骰子的最小值和最大值（范围：0-100）</li>
+                    <li>点击"开始模拟"按钮启动蒙特卡洛模拟</li>
+                    <li>系统将使用RANDOM.ORG的真随机数作为种子，分别投掷骰子1000、5000、10000次</li>
+                    <li>观察三个折线图中实际平均值（实线）与理论期望值（虚线）的对比</li>
+                    <li>随着投掷次数增加，实际平均值会逐渐接近理论期望值，验证大数定律</li>
+                    <li>查看结果摘要，了解各次模拟的平均值、理论期望值和偏差百分比</li>
+                </ol>
+            </div>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>配置随机数范围</h2>
+                <p class="description">
+                    输入随机数的最小值和最大值。系统将在此范围内（包含边界值）生成随机数。
+                </p>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="minValue">最小值：</label>
+                        <input type="number" id="minValue" min="0" max="100" value="1" required>
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="maxValue">最大值：</label>
+                        <input type="number" id="maxValue" min="0" max="100" value="10" required>
+                    </div>
+                </div>
+                
+                <button id="startButton" class="start-button">开始模拟</button>
+                
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+            </section>
+
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>正在生成随机数并运行模拟...</p>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>模拟结果</h2>
+                
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <h3>1000次投掷</h3>
+                        <canvas id="chart1000"></canvas>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <h3>5000次投掷</h3>
+                        <canvas id="chart5000"></canvas>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <h3>10000次投掷</h3>
+                        <canvas id="chart10000"></canvas>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h3>结果摘要</h3>
+                    <div id="summaryContent" class="summary-content">
+                        <!-- 摘要内容将由JavaScript填充 -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./node_modules/seedrandom/seedrandom.min.js"></script>
+    <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details - Recipe-APP</title>
+    <link rel="stylesheet" href="recipe.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="recipe-nav">
+        <button class="back-btn">
+            <span class="arrow-icon">←</span>
+            <span class="back-text">Back to Search</span>
+        </button>
+        <h1 class="site-title">Recipe-APP</h1>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="recipe-main">
+        <!-- 食谱主图区域 -->
+        <section class="recipe-hero">
+            <div class="image-container">
+                <img 
+                    id="recipeImage" 
+                    src="" 
+                    alt="Recipe Image" 
+                    class="recipe-main-image"
+                    loading="lazy"
+                />
+                <div class="image-overlay">
+                    <h1 id="recipeTitle" class="recipe-title">
+                        <!-- 食谱标题将通过JavaScript填充 -->
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- 食谱基本信息 -->
+        <section class="recipe-info">
+            <div class="info-container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Category:</span>
+                        <span id="recipeCategory" class="info-value">
+                            <!-- 分类信息将通过JavaScript填充 -->
+                        </span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Cuisine:</span>
+                        <span id="recipeArea" class="info-value">
+                            <!-- 地区信息将通过JavaScript填充 -->
+                        </span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tags:</span>
+                        <div id="recipeTags" class="tags-container">
+                            <!-- 标签将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 配料和制作步骤主要内容区域 -->
+        <section class="recipe-content">
+            <div class="content-container">
+                <div class="content-grid">
+                    <!-- 配料清单 -->
+                    <div class="ingredients-section">
+                        <h2 class="section-title">Ingredients</h2>
+                        <div class="ingredients-container">
+                            <ul id="ingredientsList" class="ingredients-list">
+                                <!-- 配料列表将通过JavaScript动态生成 -->
+                                <!-- 临时占位内容用于布局测试 -->
+                                <li class="ingredient-item">
+                                    <span class="ingredient-measure">Loading...</span>
+                                    <span class="ingredient-name">Loading...</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 制作步骤 -->
+                    <div class="instructions-section">
+                        <h2 class="section-title">Instructions</h2>
+                        <div class="instructions-container">
+                            <div id="instructionsContent" class="instructions-content">
+                                <!-- 制作步骤将通过JavaScript动态生成 -->
+                                <!-- 临时占位内容用于布局测试 -->
+                                <ol class="instructions-list">
+                                    <li class="instruction-step">Loading cooking instructions...</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 额外信息区域 -->
+        <section class="recipe-extras">
+            <div class="extras-container">
+                <div class="extras-grid">
+                    <!-- YouTube视频链接 -->
+                    <div class="video-section" id="videoSection" style="display: none;">
+                        <h3 class="extras-title">Video Tutorial</h3>
+                        <a id="youtubeLink" href="" target="_blank" rel="noopener noreferrer" class="youtube-link">
+                            <span class="youtube-icon">▶️</span>
+                            <span class="youtube-text">Watch on YouTube</span>
+                        </a>
+                    </div>
+
+                    <!-- 原始来源链接 -->
+                    <div class="source-section" id="sourceSection" style="display: none;">
+                        <h3 class="extras-title">Original Source</h3>
+                        <a id="sourceLink" href="" target="_blank" rel="noopener noreferrer" class="source-link">
+                            <span class="source-icon">🔗</span>
+                            <span class="source-text">View Original Recipe</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 加载状态覆盖层 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading recipe details...</p>
+        </div>
+    </div>
+
+    <!-- 错误状态显示 -->
+    <div class="error-overlay" id="errorOverlay" style="display: none;">
+        <div class="error-content">
+            <div class="error-icon">⚠️</div>
+            <h2>Failed to Load Recipe</h2>
+            <p class="error-message" id="errorMessage">
+                Sorry, we couldn't load this recipe. Please check your connection and try again.
+            </p>
+            <div class="error-actions">
+                <button class="retry-btn" id="retryBtn">Retry</button>
+                <button class="back-btn" id="backToSearchBtn">Back to Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 通知 -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

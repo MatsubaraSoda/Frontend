@@ -1,0 +1,121 @@
+/* Lorem Ipsum Generator 样式 - 简洁版 */
+
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 380px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    min-width: 380px;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* 输入区域样式 */
+.container-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 标签样式 */
+label {
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+/* 输入框样式 */
+#number {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+}
+
+#number:focus {
+    outline: none;
+    border-color: #666;
+}
+
+/* 按钮样式 */
+#generate {
+    padding: 8px 16px;
+    background: #333;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#generate:hover {
+    background: #555;
+}
+
+/* 结果区域样式 */
+#result {
+    margin-top: 20px;
+}
+
+/* 段落样式 */
+.paragraph {
+    margin-bottom: 20px;
+    text-indent: 2em; /* 首行缩进两个字符 */
+    line-height: 1.6;
+    font-size: 14px;
+    color: #333;
+}
+
+.paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    label {
+        margin-right: 0;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    #number {
+        width: 100px;
+    }
+}

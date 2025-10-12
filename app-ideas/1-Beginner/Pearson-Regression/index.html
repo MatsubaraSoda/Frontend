@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮尔逊相关分析</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <h1>皮尔逊相关分析</h1>
+            <p>输入两组数据，分析它们之间的相关性</p>
+        </header>
+
+        <!-- 输入区域 -->
+        <section class="input-section">
+            <div class="input-left">
+                <div class="input-group">
+                    <label for="xInput">X 值:</label>
+                    <input type="number" id="xInput" placeholder="请输入X值" step="any">
+                </div>
+                
+                <div class="input-group">
+                    <label for="yInput">Y 值:</label>
+                    <input type="number" id="yInput" placeholder="请输入Y值" step="any">
+                </div>
+                
+                <div class="button-group">
+                    <button id="addBtn" class="btn btn-primary">添加</button>
+                    <button id="calculateBtn" class="btn btn-success">计算</button>
+                    <button id="uploadBtn" class="btn btn-secondary">上传</button>
+                    <button id="loadTestBtn" class="btn btn-test" title="加载100个测试数据点" style="display: none;">测试数据</button>
+                </div>
+                
+                <!-- 隐藏的文件输入 -->
+                <input type="file" id="fileInput" accept=".json" style="display: none;">
+            </div>
+        </section>
+
+        <!-- 显示区域 -->
+        <section class="display-section">
+            <!-- 左侧：数据表格 -->
+            <div class="table-container">
+                <h3>数据列表</h3>
+                <div class="table-scroll-container">
+                    <table id="dataTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>X 值</th>
+                                <th>Y 值</th>
+                                <th>
+                                    <button id="clearAllBtn" class="btn-clear-all" title="删除全部数据">清空</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- 数据行将通过JavaScript动态添加 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 右侧：图表和统计信息 -->
+            <div class="right-panel">
+                <!-- 右上：Canvas图表区域 -->
+                <div class="chart-container">
+                    <h3>散点图与回归线</h3>
+                    <canvas id="scatterCanvas" width="1000" height="1000"></canvas>
+                </div>
+
+                <!-- 右下：统计信息 -->
+                <div class="stats-container">
+                    <h3>统计结果</h3>
+                    <div class="stats-content">
+                        <div class="stat-item">
+                            <label>X 算术平均值:</label>
+                            <span id="xMean">-</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <label>Y 算术平均值:</label>
+                            <span id="yMean">-</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <label>X 标准差:</label>
+                            <span id="xStdDev">-</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <label>Y 标准差:</label>
+                            <span id="yStdDev">-</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <label>皮尔逊相关系数:</label>
+                            <span id="correlation">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 隐藏的文件上传输入 -->
+        <input type="file" id="fileInput" accept=".csv,.txt,.json" style="display: none;">
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>

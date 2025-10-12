@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气查询应用</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <h1>🌤️ 天气查询 🌤️</h1>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 搜索区域 -->
+            <section class="search-section">
+                <div class="search-wrapper">
+                    <label for="city-input" class="visually-hidden">输入城市名称</label>
+                    <input 
+                        type="text" 
+                        id="city-input" 
+                        class="city-input" 
+                        placeholder="输入城市名称"
+                        aria-label="城市名称输入框"
+                    >
+                    <button 
+                        id="search-btn" 
+                        class="search-btn" 
+                        type="button"
+                        aria-label="搜索天气"
+                    >
+                        🔎
+                    </button>
+                </div>
+            </section>
+
+            <!-- 天气显示区域 -->
+            <section class="weather-section" id="weather-section" style="display: none;">
+                <!-- 位置和日期信息 -->
+                <div class="location-info">
+                    <div class="location-name">
+                        <span class="location-icon">📍</span>
+                        <span id="city-name">--</span>
+                        <span class="country-separator">,</span>
+                        <span id="country-name">--</span>
+                    </div>
+                    <div class="date-info">
+                        <span class="date-icon">📅</span>
+                        <span id="current-date">--</span>
+                        <span class="weekday" id="weekday">--</span>
+                        <span class="day-night-icon" id="day-night-icon">🌅</span>
+                        <span id="day-night-text">白天</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 当前天气主显示区 -->
+                <div class="current-weather">
+                    <!-- 天气图标和描述 -->
+                    <div class="weather-status">
+                        <span class="weather-icon" id="weather-icon">☀️</span>
+                        <span class="weather-desc" id="weather-desc">晴朗</span>
+                    </div>
+
+                    <!-- 当前温度显示卡片 -->
+                    <div class="current-temp-card">
+                        <div class="temp-value">
+                            <span id="current-temp">--</span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="temp-time">
+                            <span class="time-icon">🕐</span>
+                            <span class="time-label">现在</span>
+                            <span id="observation-time">--:--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 今日温度范围 -->
+                <div class="today-temp-range">
+                    <h3 class="section-title">今日温度:</h3>
+                    
+                    <!-- 最低温 -->
+                    <div class="temp-range-item min-temp">
+                        <span class="range-icon">⬇️</span>
+                        <span class="range-label">最低</span>
+                        <span class="range-value">
+                            <span id="min-temp">--</span>
+                            <span class="temp-unit">°C</span>
+                        </span>
+                        <span class="range-time">
+                            <span class="time-desc">(凌晨</span>
+                            <span id="min-temp-time">--:--</span>
+                            <span>)</span>
+                        </span>
+                    </div>
+
+                    <!-- 最高温 -->
+                    <div class="temp-range-item max-temp">
+                        <span class="range-icon">⬆️</span>
+                        <span class="range-label">最高</span>
+                        <span class="range-value">
+                            <span id="max-temp">--</span>
+                            <span class="temp-unit">°C</span>
+                        </span>
+                        <span class="range-time">
+                            <span class="time-desc">(下午</span>
+                            <span id="max-temp-time">--:--</span>
+                            <span>)</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 更新信息 -->
+                <div class="update-info">
+                    <span class="update-icon">💡</span>
+                    <span class="update-text">数据更新于</span>
+                    <span id="update-time-relative">--</span>
+                </div>
+            </section>
+
+            <!-- 初始提示 -->
+            <section class="initial-prompt" id="initial-prompt">
+                <div class="prompt-content">
+                    <p class="prompt-icon">🌍</p>
+                    <p class="prompt-text">请输入中文城市名称查询天气</p>
+                    <p class="prompt-hint">支持全国 57 个主要城市</p>
+                </div>
+            </section>
+
+            <!-- 错误/消息提示区域 -->
+            <section class="message-section" id="message-section" style="display: none;">
+                <div class="message-box" id="message-box" role="alert" aria-live="assertive">
+                    <span class="message-icon" id="message-icon"></span>
+                    <span class="message-text" id="message-text"></span>
+                    <button class="message-close" id="message-close" aria-label="关闭消息">&times;</button>
+                </div>
+            </section>
+
+            <!-- 加载动画区域 -->
+            <section class="loading-section" id="loading-section" style="display: none;">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p class="loading-text">正在查询天气...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="cityMap.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

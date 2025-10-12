@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美元转美分 - DollarsToCents</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">💰 美元转美分</h1>
+            <p class="subtitle">输入美元金额，获取最优美分硬币组合</p>
+        </header>
+
+        <main class="main">
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="dollarInput" class="input-label">美元金额</label>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="dollarInput" class="dollar-input" placeholder="0.00" step="0.01"
+                            min="0" max="999999.99">
+                    </div>
+                    <small class="input-hint">支持最多两位小数（如：23.45）</small>
+                </div>
+
+                <button id="convertBtn" class="convert-btn">转换</button>
+            </section>
+
+            <section class="result-section" id="resultSection" style="display: none;">
+                <h2 class="result-title">转换结果</h2>
+
+                <div class="total-cents">
+                    <span class="total-label">总美分数：</span>
+                    <span class="total-value" id="totalCents">0</span>
+                    <span class="cents-symbol">¢</span>
+                </div>
+
+                <div class="coins-breakdown">
+                    <h3 class="breakdown-title">硬币分配（最优方案）</h3>
+
+                    <div class="coins-grid">
+                        <div class="coin-item quarter">
+                            <div class="coin-icon">🪙</div>
+                            <div class="coin-info">
+                                <span class="coin-name">Quarter</span>
+                                <span class="coin-value">25¢</span>
+                                <span class="coin-count" id="quarterCount">0</span>
+                            </div>
+                        </div>
+
+                        <div class="coin-item dime">
+                            <div class="coin-icon">🪙</div>
+                            <div class="coin-info">
+                                <span class="coin-name">Dime</span>
+                                <span class="coin-value">10¢</span>
+                                <span class="coin-count" id="dimeCount">0</span>
+                            </div>
+                        </div>
+
+                        <div class="coin-item nickel">
+                            <div class="coin-icon">🪙</div>
+                            <div class="coin-info">
+                                <span class="coin-name">Nickel</span>
+                                <span class="coin-value">5¢</span>
+                                <span class="coin-count" id="nickelCount">0</span>
+                            </div>
+                        </div>
+
+                        <div class="coin-item penny">
+                            <div class="coin-icon">🪙</div>
+                            <div class="coin-info">
+                                <span class="coin-name">Penny</span>
+                                <span class="coin-value">1¢</span>
+                                <span class="coin-count" id="pennyCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <div class="summary-item">
+                        <span class="summary-label">总硬币数量：</span>
+                        <span class="summary-value" id="totalCoins">0</span>
+                        <span class="summary-unit">枚</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3 class="info-title">💡 使用说明</h3>
+                <ul class="info-list">
+                    <li>输入美元金额（支持两位小数）</li>
+                    <li>点击"转换"按钮获取结果</li>
+                    <li>系统会自动计算最优硬币组合</li>
+                    <li>从大到小分配：Quarter(25¢) → Dime(10¢) → Nickel(5¢) → Penny(1¢)</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 DollarsToCents - 前端练习项目</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+    <!-- 测试脚本 - 生产环境可注释掉
+    <script src="test/test.js"></script>
+    -->
+</body>
+
+</html>

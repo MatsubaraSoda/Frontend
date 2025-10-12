@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部标题 -->
+        <header>
+            <h1>Notes App</h1>
+        </header>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <!-- 顶部控制区域 -->
+            <div class="control-panel-top">
+                <!-- 笔记选择下拉框 -->
+                <div class="note-selector">
+                    <label for="noteSelect">选择笔记：</label>
+                    <select id="noteSelect">
+                        <option value="sample-0">欢迎使用 Notes App</option>
+                    </select>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div class="action-buttons">
+                    <button id="newNote" type="button">新建</button>
+                    <button id="saveNote" type="button">保存</button>
+                    <button id="deleteNote" type="button">删除</button>
+                </div>
+            </div>
+
+            <!-- 笔记信息显示 -->
+            <div class="note-info">
+                <div class="note-date">
+                    <span class="date-label">创建：</span>
+                    <span id="createdDate">-</span>
+                </div>
+                <div class="note-date">
+                    <span class="date-label">更新：</span>
+                    <span id="updatedDate">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <main class="content-area">
+            <!-- 左侧：Markdown 编辑区域 -->
+            <div class="editor-section">
+                <h3>编辑笔记</h3>
+                <textarea id="markdownEditor" placeholder="在这里使用 Markdown 语法编写您的笔记..." rows="20"></textarea>
+            </div>
+
+            <!-- 右侧：预览区域 -->
+            <div class="preview-section">
+                <h3>预览</h3>
+                <div id="markdownPreview" class="preview-content">
+                    <p>预览将在这里显示...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 新建笔记对话框 -->
+    <div id="newNoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>新建笔记</h3>
+            </div>
+            <div class="modal-body">
+                <label for="noteTitle">笔记标题：</label>
+                <input type="text" id="noteTitle" placeholder="请输入笔记标题..." maxlength="50">
+            </div>
+            <div class="modal-footer">
+                <button id="cancelNewNote" type="button">取消</button>
+                <button id="confirmNewNote" type="button">创建</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除笔记确认对话框 -->
+    <div id="deleteNoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>删除笔记</h3>
+            </div>
+            <div class="modal-body">
+                <p>确认要删除笔记"<span id="currentNoteTitle">当前笔记</span>"吗？</p>
+                <p class="warning-text">此操作不可撤销。</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelDeleteNote" type="button">取消</button>
+                <button id="confirmDeleteNote" type="button">确认删除</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 操作成功提示框 -->
+    <div id="operationToast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✓</span>
+            <span class="toast-message" id="toastMessage">操作成功</span>
+        </div>
+    </div>
+
+    <!-- 错误提示框 -->
+    <div id="errorToast" class="toast error-toast">
+        <div class="toast-content">
+            <span class="toast-icon">✗</span>
+            <span class="toast-message" id="errorMessage">操作失败</span>
+        </div>
+    </div>
+
+    <!-- 引入 marked 库 -->
+    <script src="./node_modules/marked/lib/marked.umd.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key-Value 应用</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Key-Value 应用</h1>
+        <div class="display-panel" id="displayPanel">
+            <div class="display-textarea" id="displayTextarea">
+                请按下任意按键查看信息...
+            </div>
+        </div>
+        <div class="indicator-panel" id="indicatorPanel">
+            <ul class="indicator-list" id="indicatorList">
+                <li class="indicator" data-key="alt">ALT</li>
+                <li class="indicator" data-key="ctrl">CTRL</li>
+                <li class="indicator" data-key="meta">Meta</li>
+                <li class="indicator" data-key="shift">SHIFT</li>         
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
