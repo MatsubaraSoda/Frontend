@@ -2,3 +2,6 @@ others
 .cursor
 .vscode
 
+# 忽略 WorkSpace 目录下的所有文件（前端框架源码）
+app-ideas/2-Intermediate/WorkSpace/
+
