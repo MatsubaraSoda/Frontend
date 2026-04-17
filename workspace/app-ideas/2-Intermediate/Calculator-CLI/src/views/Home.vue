@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SuccessFunc, FailedFunc } from 'vue-web-terminal'
+import type { SuccessFunc, FailedFunc } from 'vue-web-terminal'
 import { executeCalculatorCliCommand } from '@/api/calculatorcli'
 
 /**
