@@ -6,3 +6,4 @@ others
 app-ideas/2-Intermediate/WorkSpace/
 
 node_modules/
+*.code-workspace
